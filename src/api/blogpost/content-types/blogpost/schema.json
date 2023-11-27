@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogposts",
+  "info": {
+    "singularName": "blogpost",
+    "pluralName": "blogposts",
+    "displayName": "blogpost",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "Autor": {
+      "type": "string",
+      "required": true,
+      "default": "Escreva o nome do autor do post"
+    },
+    "Intro": {
+      "type": "text",
+      "required": true,
+      "default": "Escreva uma pequena descrição para aparecer na chamada do post"
+    },
+    "imgThumb": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Promovido": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "imgPromovido": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "DataPublicacao": {
+      "type": "date"
+    },
+    "Categoria": {
+      "type": "enumeration",
+      "enum": [
+        "Novidades",
+        "Eventos",
+        "Inteligencia Artificial",
+        "Robótica"
+      ]
+    },
+    "Conteudo": {
+      "type": "blocks",
+      "required": true
+    },
+    "midiasConteudo": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Likes": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "blogspost_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blogspost-comment.blogspost-comment"
+    }
+  }
+}
